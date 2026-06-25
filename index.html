@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <meta
       name="description"
       content="Preview-only LMS dashboard for public viewing."
@@ -14,13 +17,17 @@
     <header class="topbar">
       <div class="brand">
         <div class="logo">L</div>
-        <div>
+        <div class="brand-text">
           <h1>LumaLearn</h1>
           <p>College LMS Preview</p>
         </div>
       </div>
 
-      <nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+
+      <nav class="topnav" id="topNav">
         <a href="#home">Home</a>
         <a href="#courses">Courses</a>
         <a href="#resources">Resources</a>
@@ -29,31 +36,35 @@
 
     <main class="layout">
       <aside class="sidebar">
-        <h2>Course Menu</h2>
-        <ul>
-          <li>Materials</li>
-          <li>Updates</li>
-          <li>Assignments</li>
-          <li>Calendar</li>
-          <li>People</li>
-        </ul>
+        <section class="sidebar-block">
+          <h2>Course Menu</h2>
+          <ul>
+            <li>Materials</li>
+            <li>Updates</li>
+            <li>Assignments</li>
+            <li>Calendar</li>
+            <li>People</li>
+          </ul>
+        </section>
 
-        <h2>Your Courses</h2>
-        <ul>
-          <li>IT 101</li>
-          <li>CS 1100</li>
-          <li>ENG 1020</li>
-        </ul>
+        <section class="sidebar-block">
+          <h2>Your Courses</h2>
+          <ul>
+            <li>IT 101</li>
+            <li>CS 1100</li>
+            <li>ENG 1020</li>
+          </ul>
+        </section>
       </aside>
 
       <section class="content">
         <section class="hero" id="home">
-          <div>
+          <div class="hero-text">
             <span class="tag">Preview-only portal</span>
             <h2>Build your college LMS and publish it as a read-only site.</h2>
             <p>
               This public version is designed for viewers to browse course pages,
-              announcements, folders, and resources.
+              announcements, folders, and resources from any screen size.
             </p>
           </div>
 
