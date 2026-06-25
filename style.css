@@ -1,20 +1,45 @@
+:root {
+  --bg: #eef3f9;
+  --surface: #ffffff;
+  --surface-soft: #f4f8ff;
+  --text: #10223a;
+  --muted: #5d728d;
+  --nav: #0f2340;
+  --nav-soft: #132947;
+  --blue: #3b73e8;
+  --teal: #1d8d82;
+  --gold: #b88617;
+  --shadow: 0 12px 28px rgba(16, 34, 58, 0.08);
+  --radius: 18px;
+}
+
 * {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #eef3f9;
-  color: #10223a;
+html {
+  scroll-behavior: smooth;
 }
 
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* Top Bar /
 .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
-  background: #0f2340;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--nav);
   color: white;
 }
 
@@ -22,6 +47,7 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .logo {
@@ -29,48 +55,80 @@ body {
   height: 42px;
   border-radius: 12px;
   background: #66a7ff;
-  color: #0f2340;
+  color: var(--nav);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  flex-shrink: 0;
 }
 
-.brand h1 {
+.brand-text h1 {
   margin: 0;
   font-size: 18px;
+  line-height: 1.1;
 }
 
-.brand p {
-  margin: 0;
+.brand-text p {
+  margin: 2px 0 0;
   font-size: 13px;
   color: #bdd1ed;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 14px;
-  font-weight: 600;
+.topnav {
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
+.topnav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.topnav a:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.menu-toggle {
+  display: none;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 20px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+}
+
+/ Layout /
 .layout {
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: 18px;
   padding: 18px;
+  align-items: start;
 }
 
 .sidebar {
-  background: #132947;
+  background: var(--nav-soft);
   color: white;
-  border-radius: 18px;
+  border-radius: var(--radius);
   padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.sidebar-block + .sidebar-block {
+  margin-top: 18px;
 }
 
 .sidebar h2 {
-  font-size: 14px;
-  margin-top: 0;
+  margin: 0 0 12px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #9eb7d8;
@@ -79,14 +137,15 @@ nav a {
 .sidebar ul {
   list-style: none;
   padding: 0;
-  margin-bottom: 20px;
+  margin: 0;
 }
 
 .sidebar li {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   padding: 10px 12px;
   border-radius: 12px;
   margin-bottom: 10px;
+  font-size: 15px;
 }
 
 .content {
@@ -95,20 +154,34 @@ nav a {
   gap: 16px;
 }
 
+/ Cards / Panels /
 .hero,
 .notice,
 .card,
 .panel {
-  background: white;
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: 0 10px 25px rgba(16, 34, 58, 0.08);
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .hero {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 16px;
+  padding: 18px;
+}
+
+.hero h2 {
+  margin: 10px 0 10px;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1.15;
+}
+
+.hero p,
+.notice p,
+.card p,
+.panel li {
+  color: var(--muted);
 }
 
 .tag {
@@ -121,10 +194,6 @@ nav a {
   font-weight: bold;
 }
 
-.hero h2 {
-  margin-top: 10px;
-}
-
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -132,7 +201,7 @@ nav a {
 }
 
 .stat {
-  background: #f4f8ff;
+  background: var(--surface-soft);
   border-radius: 14px;
   padding: 14px;
   text-align: center;
@@ -141,6 +210,17 @@ nav a {
 .stat strong {
   display: block;
   font-size: 24px;
+  line-height: 1.1;
+}
+
+.notice {
+  padding: 18px;
+}
+
+.notice h3,
+.panel h3,
+.card h3 {
+  margin-top: 0;
 }
 
 .cards {
@@ -161,21 +241,31 @@ nav a {
 }
 
 .blue {
-  background: #3b73e8;
+  background: var(--blue);
 }
 
 .teal {
-  background: #1d8d82;
+  background: var(--teal);
 }
 
 .gold {
-  background: #b88617;
+  background: var(--gold);
 }
 
 .card-body {
   padding: 16px;
 }
 
+.panel {
+  padding: 18px;
+}
+
+.panel ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+/ Buttons /
 button {
   background: #245fd0;
   color: white;
@@ -183,18 +273,125 @@ button {
   padding: 10px 14px;
   border-radius: 12px;
   cursor: pointer;
-}
-
-.footer {
-  padding: 18px;
-  color: #5c728d;
+  font-weight: 600;
   font-size: 14px;
 }
 
-@media (max-width: 900px) {
-  .layout,
-  .hero,
+button:hover {
+  background: #1f54b7;
+}
+
+/ Footer /
+.footer {
+  padding: 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/ Tablet /
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 220px 1fr;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+/ Mobile /
+@media (max-width: 768px) {
+  .topbar {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .topnav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .topnav.show {
+    display: flex;
+  }
+
+  .topnav a {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 12px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
+  .content {
+    order: 1;
+  }
+
   .cards {
     grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .notice,
+  .panel {
+    padding: 16px;
+  }
+
+  .brand-text h1 {
+    font-size: 16px;
+  }
+
+  .brand-text p {
+    font-size: 12px;
+  }
+}
+
+/ Small phones */
+@media (max-width: 480px) {
+  .topbar {
+    padding: 12px 14px;
+  }
+
+  .layout {
+    gap: 14px;
+    padding: 12px;
+  }
+
+  .hero h2 {
+    font-size: 1.35rem;
+  }
+
+  .sidebar li,
+  .panel li,
+  .card p,
+  .notice p {
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
   }
 }
