@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Preview-only LMS dashboard for public viewing."
+    />
+    <title>College LMS Preview</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Hello</h1>
+  </body>
+</html>
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">L</div>
+        <div>
+          <h1>LumaLearn</h1>
+          <p>College LMS Preview</p>
+        </div>
+      </div>
+      <nav>
+        #homeHome</a>
+        #coursesCourses</a>
+        #resourcesResources</a>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <h2>Course Menu</h2>
+        <ul>
+          <li>Materials</li>
+          <li>Updates</li>
+          <li>Assignments</li>
+          <li>Calendar</li>
+          <li>People</li>
+        </ul>
+
+        <h2>Your Courses</h2>
+        <ul>
+          <li>IT 101</li>
+          <li>CS 1100</li>
+          <li>ENG 1020</li>
+        </ul>
+      </aside>
+
+      <section class="content">
+        <section class="hero" id="home">
+          <div>
+            <span class="tag">Preview-only portal</span>
+            <h2>Build your college LMS and publish it as a read-only site.</h2>
+            <p>
+              This public version is designed for viewers to browse course pages,
+              announcements, folders, and resources.
+            </p>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>3</strong>
+              <span>Courses</span>
+            </div>
+            <div class="stat">
+              <strong>3</strong>
+              <span>Announcements</span>
+            </div>
+            <div class="stat">
+              <strong>6</strong>
+              <span>Upcoming items</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="notice">
+          <h3>Preview-only mode</h3>
+          <p>
+            Visitors can view course pages, syllabus content, announcements,
+            folders, and resources. Editing, grades, and submissions are hidden.
+          </p>
+        </section>
+
+        <section class="cards" id="courses">
+          <article class="card">
+            <div class="banner blue">IT 101</div>
+            <div class="card-body">
+              <h3>Foundations of Information Technology</h3>
+              <p>Weekly modules, lab links, and study guides.</p>
+              <button onclick="showMessage('IT 101 opened')">Open Course</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="banner teal">CS 1100</div>
+            <div class="card-body">
+              <h3>Intro to Programming</h3>
+              <p>Practice exercises, starter files, and coding walkthroughs.</p>
+              <button onclick="showMessage('CS 1100 opened')">Open Course</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="banner gold">ENG 1020</div>
+            <div class="card-body">
+              <h3>College Composition</h3>
+              <p>Essay deadlines, reading packets, and writing resources.</p>
+              <button onclick="showMessage('ENG 1020 opened')">Open Course</button>
+            </div>
+          </article>
+        </section>
+
+        <section class="panel" id="resources">
+          <h3>Shared Resources</h3>
+          <ul>
+            <li>Academic calendar</li>
+            <li>Student support services</li>
+            <li>Tutoring center information</li>
+            <li>Technology help desk links</li>
+          </ul>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer">
+      This project is an independently built educational LMS interface inspired by
+      modern learning platforms. It is not affiliated with or endorsed by Schoology or PowerSchool.
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
